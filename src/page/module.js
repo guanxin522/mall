@@ -1,9 +1,6 @@
 /*
 * @Author: xin
-* @Date:   2018-04-26 19:59:40
+* @Date:   2018-04-28 20:48:23
 * @Last Modified by:   xin
-* @Last Modified time: 2018-04-26 20:01:34
+* @Last Modified time: 2018-04-28 20:48:23
 */
-module.exports = {
-    test:1234,
-}

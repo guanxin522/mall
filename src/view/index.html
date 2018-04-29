@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html> 
-<%= require('html-loader!./layout/html-head.html')%>
-<p>防守打法师德师风</p>
-<body>
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-</body>
+    <head>
+        <%= require('html-loader!./layout/html-common.html')%>
+        <title>首页</title>
+    </head>
+    <body>
+        <%= require('html-loader!./layout/nav.html')%> 
+        <%= require('html-loader!./layout/header.html')%>            
+        <div class="page-wrap w">
+        <%= require('html-loader!./layout/nav-side.html')%>     
+        <div class="content with-nav">test</div>        
+        </div>
+        <%= require('html-loader!./layout/footer.html')%>
+    </body>
 
 </html>
