@@ -2,7 +2,7 @@
 * @Author: xin
 * @Date:   2018-04-29 11:24:02
 * @Last Modified by:   xin
-* @Last Modified time: 2018-04-29 14:10:51
+* @Last Modified time: 2018-04-29 20:56:38
 */
 require('./index.css');
 var _mm = require('util/mm.js');
@@ -34,7 +34,6 @@ var header = {
     searchSubmit : function(){
         var keyword = $.trim($('#search-input').val());
         //如果提交的时候有keyword,正常跳转到list页
-        alert(keyword);
         if (keyword) {
             window.location.href = './list.html?keyword='+keyword;
         }

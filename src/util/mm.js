@@ -2,7 +2,7 @@
 * @Author: xin
 * @Date:   2018-04-27 20:14:54
 * @Last Modified by:   xin
-* @Last Modified time: 2018-04-29 15:57:17
+* @Last Modified time: 2018-04-30 15:33:31
 */
 var conf = {
     serverHost : ''
@@ -13,25 +13,26 @@ var _mm = {
     request : function(param){
         var _this = this;
         $.ajax({
-            type     :param.method    ||'get',
-            url      :param.url       ||'',
-            dataType :param.type      ||'json',
-            data     :param.data      ||'',
-            success:function(res){
-                //请求成功
+            type        : param.method  || 'get',
+            url         : param.url     || '',
+            dataType    : param.type    || 'json',
+            data        : param.data    || '',
+            success     : function(res){
+                // 请求成功
                 if(0 === res.status){
-                    typeof param.success === 'function' && param.success(res.data,res.msg);
+                    typeof param.success === 'function' && param.success(res.data, res.msg);
                 }
-                //强制登陆
+                // 没有登录状态，需要强制登录
                 else if(10 === res.status){
                     _this.doLogin();
                 }
+                // 请求数据错误
                 else if(1 === res.status){
-                    typeof param.err === 'function' && param.success(res.msg);
+                    typeof param.error === 'function' && param.error(res.msg);
                 }
             },
-            error:function(err){
-                typeof param.err === 'function' && param.success(err.statusText);
+            error       : function(err){
+                typeof param.error === 'function' && param.error(err.statusText);
             }
         });
     },
@@ -76,7 +77,7 @@ var _mm = {
     },
     //统一登陆处理
     doLogin : function(){
-        window.location.href = './login.html?redirect=' + encodeURIComponent(window.location.href);
+        window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     },
     goHome : function(){
         window.location.href = './index.html';

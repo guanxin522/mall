@@ -2,7 +2,7 @@
 * @Author: xin
 * @Date:   2018-04-28 20:16:59
 * @Last Modified by:   xin
-* @Last Modified time: 2018-04-28 21:23:31
+* @Last Modified time: 2018-04-30 15:05:27
 */
 require('./index.css');
 var _mm = require('util/mm.js');
@@ -20,7 +20,7 @@ var nav = {
             _mm.doLogin();
         });
         $('.js-register').click(function(){
-           window.location.href = './register.html';
+           window.location.href = './user-register.html';
         });        
         $('.js-logout').click(function(){
            _user.logout(function(res){
