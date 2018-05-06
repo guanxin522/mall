@@ -2,7 +2,7 @@
 * @Author: xin
 * @Date:   2018-04-26 19:01:10
 * @Last Modified by:   xin
-* @Last Modified time: 2018-05-05 10:50:11
+* @Last Modified time: 2018-05-06 13:02:17
 */
 
 var webpack                = require('webpack');
@@ -31,6 +31,9 @@ config = {
         'user-register': ['./src/page/user-register/index.js'],       
         'user-login': ['./src/page/user-login/index.js'],
         'user-pass-reset': ['./src/page/user-pass-reset/index.js'],        
+        'order-confirm'     : ['./src/page/order-confirm/index.js'],
+        'order-list'        : ['./src/page/order-list/index.js'],
+        'order-detail'      : ['./src/page/order-detail/index.js'],
         'user-center': ['./src/page/user-center/index.js'],        
         'list'              : ['./src/page/list/index.js'],
         'cart'              : ['./src/page/cart/index.js'],
@@ -77,6 +80,9 @@ config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),        
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
         new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),        
+        new HtmlWebpackPlugin(getHtmlConfig('order-confirm', '订单确认')),
+        new HtmlWebpackPlugin(getHtmlConfig('order-list', '订单列表')),
+        new HtmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情')),        
         new HtmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),     
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表')),
         new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情')), 
