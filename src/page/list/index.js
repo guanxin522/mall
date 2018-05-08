@@ -1,10 +1,11 @@
 /*
 * @Author: mmall
 * @Date:   2017-05-27 17:57:49
-* @Last Modified by:   xin
-* @Last Modified time: 2018-05-05 10:44:13
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-05-28 19:48:16
 */
 
+'use strict';
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
@@ -106,8 +107,6 @@ var page = {
                 _this.loadList();
             }
         }));
-  
-
     }
 };
 $(function(){

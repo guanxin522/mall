@@ -1,6 +1,11 @@
 /*
-* @Author: xin
-* @Date:   2018-04-28 20:48:23
-* @Last Modified by:   xin
-* @Last Modified time: 2018-04-28 20:48:23
+* @Author: Rosen
+* @Date:   2017-05-09 16:47:03
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-05-09 16:47:14
 */
+
+'use strict';
+module.exports = {
+    test: 1234
+}

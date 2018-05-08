@@ -1,17 +1,23 @@
 /*
-* @Author: xin
-* @Date:   2018-04-29 16:00:28
-* @Last Modified by:   xin
-* @Last Modified time: 2018-04-29 20:56:40
+* @Author: Rosen
+* @Date:   2017-05-19 21:52:46
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-06-10 21:24:36
 */
+
+'use strict';
 require('./index.css');
-var navSide = require('page/common/nav-simple/index.js');
+require('page/common/nav-simple/index.js');
 var _mm = require('util/mm.js');
 
 $(function(){
-    var type = _mm.getUrlParam('type') || 'default',
-        $element = $('.' + type + '-success');
-    //显示对应的提示元素
+    var type        = _mm.getUrlParam('type') || 'default',
+        $element    = $('.' + type + '-success');
+    if(type === 'payment'){
+        var orderNumber  = _mm.getUrlParam('orderNumber'),
+            $orderNumber = $element.find('.order-number');
+        $orderNumber.attr('href', $orderNumber.attr('href') + orderNumber);
+    }
+    // 显示对应的提示元素
     $element.show();
-
 })

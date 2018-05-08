@@ -1,7 +1,9 @@
 /*
-* @Author: xin
-* @Date:   2018-04-28 19:51:48
-* @Last Modified by:   xin
-* @Last Modified time: 2018-04-28 19:54:51
+* @Author: Rosen
+* @Date:   2017-05-17 11:26:25
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-05-17 11:26:46
 */
+
+'use strict';
 require('./index.css');

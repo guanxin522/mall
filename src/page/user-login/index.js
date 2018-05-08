@@ -1,16 +1,17 @@
 /*
-* @Author: xin
-* @Date:   2018-04-26 19:22:24
-* @Last Modified by:   xin
-* @Last Modified time: 2018-04-29 21:06:50
+* @Author: Rosen
+* @Date:   2017-05-08 22:26:19
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-05-21 22:36:14
 */
 
-
+'use strict';
 require('./index.css');
-var navSide = require('page/common/nav-simple/index.js');
-var _mm = require('util/mm.js');
-var _user =require('service/user-service.js');
-//表单里的错误提示
+require('page/common/nav-simple/index.js');
+var _user   = require('service/user-service.js');
+var _mm     = require('util/mm.js');
+
+// 表单里的错误提示
 var formError = {
     show : function(errMsg){
         $('.error-item').show().find('.err-msg').text(errMsg);
@@ -20,23 +21,26 @@ var formError = {
     }
 };
 
+// page 逻辑部分
 var page = {
     init: function(){
         this.bindEvent();
     },
-    bindEvent :function(){
-        //登陆按钮的点击
+    bindEvent : function(){
         var _this = this;
-        $("#submit").click(function(){
+        // 登录按钮的点击
+        $('#submit').click(function(){
             _this.submit();
         });
-        //按下回车提交
-        $(".user-content").keyup(function(e){
-            if(e.keycode===13){
+        // 如果按下回车，也进行提交
+        $('.user-content').keyup(function(e){
+            // keyCode == 13 表示回车键
+            if(e.keyCode === 13){
                 _this.submit();
             }
         });
     },
+    // 提交表单
     submit : function(){
         var formData = {
                 username : $.trim($('#username').val()),
@@ -77,10 +81,8 @@ var page = {
         result.status   = true;
         result.msg      = '验证通过';
         return result;
-
     }
 };
-
 $(function(){
     page.init();
 });

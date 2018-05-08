@@ -1,20 +1,20 @@
 /*
-* @Author: xin
-* @Date:   2018-04-30 15:45:11
-* @Last Modified by:   xin
-* @Last Modified time: 2018-04-30 16:01:05
+* @Author: Rosen
+* @Date:   2017-05-23 11:50:40
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-05-23 12:55:57
 */
-/*最外层容器*/
+
+/* 最外层容器 */
 .page-wrap{
     padding: 40px 0;
 }
-/*表单框*/
-
+/* 表单框 */
 .user-con{
     position: relative;
+    margin: 0 auto;
     width: 400px;
     background: #fff;
-    margin: 0 auto;
 }
 .user-con .user-title{
     text-align: center;
@@ -27,7 +27,7 @@
 .user-con .user-box{
     padding: 20px;
 }
-/*错误提示*/
+/* 错误提示框 */
 .user-con .user-box .error-item{
     position: relative;
     padding: 4px 0 4px 40px;
@@ -37,7 +37,7 @@
     background: #fde9e9;
     display: none;
 }
-/*错误图标*/
+/* 错误图标 */
 .user-con .user-box .error-icon{
     position: absolute;
     left: 14px;
@@ -45,20 +45,21 @@
     font-size: 14px;
     margin-top: -7px;
 }
-/*每一步的容器*/
+/* 每一步的容器 */
 .user-con .step-con{
     display: none;
 }
+/* 输入框提示信息 */
+.user-con .user-item-text{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+/* 输入框容器 */
 .user-con .user-item{
     position: relative;
     margin-bottom: 20px;
 }
-/*输入框提示信息*/
-.user-con .user-item-text{
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-.user-con .user-item .user-lable{
+.user-con .user-item .user-label{
     position: absolute;
     left: 1px;
     top: 1px;
@@ -86,14 +87,12 @@
     text-align: center;
     font-size: 20px;
 }
-
-/*跳转链接*/
+/* 跳转链接 */
 .user-con .link-item{
     text-align: right;
     margin-top: 10px;
 }
-
 .user-con .link-item .link{
     margin-left: 10px;
-    color: #999;   
+    color: #999;
 }

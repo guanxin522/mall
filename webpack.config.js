@@ -2,7 +2,7 @@
 * @Author: xin
 * @Date:   2018-04-26 19:01:10
 * @Last Modified by:   xin
-* @Last Modified time: 2018-05-06 13:02:17
+* @Last Modified time: 2018-05-06 23:28:25
 */
 
 var webpack                = require('webpack');
@@ -10,12 +10,13 @@ var ExtractTextPlugin      = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin      = require('html-webpack-plugin');
 
 //环境变量配置，dev/online
-var WEBPACK_ENV            = process.env.WEBPACK_ENV || 'dev';
+var WEBPACK_ENV            = process.env.WEBPACK_ENV || 'dev_win';
 //获取html-webpack-plugin参数的方法
 var getHtmlConfig          = function(name,title){
     return {
         template : './src/view/'+name+'.html',
         filename : './view/'+name+'.html',
+        favicon     : './favicon.ico',
         title    : title,
         inject   : true,
         hash     : true,
@@ -36,15 +37,17 @@ config = {
         'order-detail'      : ['./src/page/order-detail/index.js'],
         'user-center': ['./src/page/user-center/index.js'],        
         'list'              : ['./src/page/list/index.js'],
+        'payment'           : ['./src/page/payment/index.js'],
         'cart'              : ['./src/page/cart/index.js'],
         'detail'            : ['./src/page/detail/index.js'],
         'user-center-update': ['./src/page/user-center-update/index.js'],    
         'user-pass-update': ['./src/page/user-pass-update/index.js'],    
         'result': ['./src/page/result/index.js'],
+        'about'             : ['./src/page/about/index.js'],        
     },  
     output: {
-        path: './dist',
-        publicPath: '/dist',
+        path        : __dirname + '/dist/',
+        publicPath  : 'dev_win' === WEBPACK_ENV ? '/dist/' : '//s.happymmall.com/mmall-fe/dist/',
         filename: 'js/[name].js'    
     },
     externals: {
@@ -53,8 +56,15 @@ config = {
     module: {
         loaders: [
             { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-            { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=../resource/[name].[ext]' },
-            { test: /\.string$/, loader: 'html-loader'},
+            { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' },
+            { 
+                test: /\.string$/, 
+                loader: 'html-loader',
+                query : {
+                    minimize : true,
+                    removeAttributeQuotes : false
+                }
+            }
         ]
     },
     resolve : {
@@ -81,6 +91,7 @@ config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
         new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),        
         new HtmlWebpackPlugin(getHtmlConfig('order-confirm', '订单确认')),
+        new HtmlWebpackPlugin(getHtmlConfig('payment', '订单支付')),
         new HtmlWebpackPlugin(getHtmlConfig('order-list', '订单列表')),
         new HtmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情')),        
         new HtmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),     
@@ -89,6 +100,7 @@ config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-center-update', '修改个人信息')),               
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),               
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
+        new HtmlWebpackPlugin(getHtmlConfig('about', '关于MMall')),
      ]
 };
 

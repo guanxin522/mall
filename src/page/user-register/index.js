@@ -1,10 +1,11 @@
 /*
-* @Author: xin
-* @Date:   2018-04-30 14:02:09
-* @Last Modified by:   xin
-* @Last Modified time: 2018-04-30 15:23:26
+* @Author: Rosen
+* @Date:   2017-05-22 09:08:57
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-05-23 23:30:23
 */
 
+'use strict';
 require('./index.css');
 require('page/common/nav-simple/index.js');
 var _user   = require('service/user-service.js');
@@ -28,16 +29,14 @@ var page = {
     bindEvent : function(){
         var _this = this;
         // 验证username
-
         $('#username').blur(function(){
             var username = $.trim($(this).val());
             // 如果用户名为空，我们不做验证
             if(!username){
                 return;
             }
-
             // 异步验证用户名是否存在
-            _user.checkUsername(username, function(res){          
+            _user.checkUsername(username, function(res){
                 formError.hide();
             }, function(errMsg){
                 formError.show(errMsg);

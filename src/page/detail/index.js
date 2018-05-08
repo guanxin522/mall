@@ -1,9 +1,12 @@
 /*
 * @Author: Rosen
 * @Date:   2017-05-28 19:45:49
-* @Last Modified by:   xin
-* @Last Modified time: 2018-05-05 11:10:49
+* @Last Modified by:   Rosen
+* @Last Modified time: 2017-05-29 18:39:01
 */
+
+'use strict';
+
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
@@ -72,16 +75,14 @@ var page = {
             _this.filter(res);
             // 缓存住detail的数据
             _this.data.detailInfo = res;
-
             // render
             html = _mm.renderHtml(templateIndex, res);
             $pageWrap.html(html);
         }, function(errMsg){
             $pageWrap.html('<p class="err-tip">此商品太淘气，找不到了</p>');
         });
-
     },
-     // 数据匹配
+    // 数据匹配
     filter : function(data){
         data.subImages = data.subImages.split(',');
     }
